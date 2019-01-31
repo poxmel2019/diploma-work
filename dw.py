@@ -1,42 +1,13 @@
-from tkinter import *
-from tkinter import messagebox
 import numpy as np
-import math
 
-    
 def f():
-    # interface
-    root = Tk()
-
-    address = Entry()
-    formats = Entry()
-    
-    button = Button()
-    address.pack()
-    
-    root.mainloop()
-def read_txt():
-    pass
-def read_xml():
-    pass
-def read_json():
-    pass
-def read_csv():
-    pass
-def read_xl():
-    pass
-def read_xls():
-    pass
-
-def ff():
 
     global mas
     someMas = [i for i in range(1,10)]
     emptyArray = []
     mas = []
-    print('This is an array')
-    print(mas)
-
+    
+  
     while True:
         path = input('Point path:\n')
         try:
@@ -46,9 +17,12 @@ def ff():
                 file.close()
         except FileNotFoundError:
             if path == 'q': break
+            elif path == '': print('You haven\'t entered')
             else: print('Error')
         except OSError:
             print('There is no the path')
+        except ValueError:
+            print("File has unreaded data")
 
         print("This is an array: {0}".format(mas))
 
@@ -61,4 +35,6 @@ def ff():
             print("This is a dispersion: {0}".format(np.var(mas))) # handy
         except ValueError:
             print('Empty array')
+
+        mas = []
     
